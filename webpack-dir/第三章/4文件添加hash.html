@@ -1,0 +1,633 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>给文件添加hash | 课程目的</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../webpack-dir/第三章/5异步加载.html" />
+    
+    
+    <link rel="prev" href="../../webpack-dir/第三章/3CommonChunk.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3.4"
+        data-chapter-title="给文件添加hash"
+        data-filepath="webpack-dir/第三章/4文件添加hash.md"
+        data-basepath="../.."
+        data-revision="Tue May 17 2016 15:57:46 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" >
+            
+            <span><b>1.</b> 使用Webpack实现基础功能</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="webpack-dir/第一章/1简介.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/1简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="webpack-dir/第一章/2初始化项目.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/2初始化项目.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        初始化项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="webpack-dir/第一章/3基本命令.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/3基本命令.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        webpack和webpack-dev-server的基本命令
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="webpack-dir/第一章/4多文件入.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/4多文件入.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        多文件入口
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="webpack-dir/第一章/5Babel-loader.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/5Babel-loader.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        使用Babel-loader来解析es6和jsx
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="webpack-dir/第一章/6devServer.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/6devServer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        devServer
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="webpack-dir/第一章/7resolve.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/7resolve.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        resolve
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="webpack-dir/第一章/8解析样式文件.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/8解析样式文件.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        解析样式文件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="webpack-dir/第一章/9devtool.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/9devtool.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.</b>
+                        
+                        devtool
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="webpack-dir/第一章/10图标字体等资源.html">
+            
+                
+                    <a href="../../webpack-dir/第一章/10图标字体等资源.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.10.</b>
+                        
+                        图标字体等资源
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> 搭建开发环境工作流</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="webpack-dir/第二章/1自动刷新.html">
+            
+                
+                    <a href="../../webpack-dir/第二章/1自动刷新.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        自动刷新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="webpack-dir/第二章/2HotModuleReplacement.html">
+            
+                
+                    <a href="../../webpack-dir/第二章/2HotModuleReplacement.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Hot Module Replacement 模块热替换
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="webpack-dir/第二章/3React-hot-loader.html">
+            
+                
+                    <a href="../../webpack-dir/第二章/3React-hot-loader.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        React-hot-loader 组件级热更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="webpack-dir/第二章/4解析html模板.html">
+            
+                
+                    <a href="../../webpack-dir/第二章/4解析html模板.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        HTML Webpack Plugin 解析html模板
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="webpack-dir/第二章/5自动打开浏览器.html">
+            
+                
+                    <a href="../../webpack-dir/第二章/5自动打开浏览器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        open-browser-webpack-plugin 自动打开浏览器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="webpack-dir/第二章/6区分环境标识.html">
+            
+                
+                    <a href="../../webpack-dir/第二章/6区分环境标识.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        区分环境标识 Environment flags
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="webpack-dir/第二章/7暴露全局对象.html">
+            
+                
+                    <a href="../../webpack-dir/第二章/7暴露全局对象.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Exposing global variables 暴露全局对象
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> 搭建生产环境工作流</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="webpack-dir/第三章/1css文件单独加载.html">
+            
+                
+                    <a href="../../webpack-dir/第三章/1css文件单独加载.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        css文件单独加载
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="webpack-dir/第三章/2VendorChunk.html">
+            
+                
+                    <a href="../../webpack-dir/第三章/2VendorChunk.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Vendor chunk 应用代码和第三方代码分离
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="webpack-dir/第三章/3CommonChunk.html">
+            
+                
+                    <a href="../../webpack-dir/第三章/3CommonChunk.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Common chunk 提取出应用中公共的代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.4" data-path="webpack-dir/第三章/4文件添加hash.html">
+            
+                
+                    <a href="../../webpack-dir/第三章/4文件添加hash.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        给文件添加hash
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="webpack-dir/第三章/5异步加载.html">
+            
+                
+                    <a href="../../webpack-dir/第三章/5异步加载.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        异步加载（实现资源加载的性能优化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="webpack-dir/第三章/6CSSModule的实现.html">
+            
+                
+                    <a href="../../webpack-dir/第三章/6CSSModule的实现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        CSS Module的实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="webpack-dir/第三章/7压缩资源.html">
+            
+                
+                    <a href="../../webpack-dir/第三章/7压缩资源.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        UglifyJs Plugin 压缩资源
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >课程目的</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h2 id="4&#x7ED9;&#x6587;&#x4EF6;&#x6DFB;&#x52A0;hash">4.&#x7ED9;&#x6587;&#x4EF6;&#x6DFB;&#x52A0;hash</h2>
+<p>&#x6211;&#x4EEC;&#x7684;&#x5F00;&#x53D1;&#x7684;&#x4EA7;&#x54C1;&#x6700;&#x7EC8;&#x662F;&#x8981;&#x4E0A;&#x7EBF;&#x7684;&#xFF0C;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;hash&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x7531;&#x4E8E;&#x7F13;&#x5B58;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8BD5;&#x7740;&#x7ED9;&#x6587;&#x4EF6;&#x52A0;&#x4E0A;hash&#x3002;&#x5176;&#x5B9E;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x9762;&#x52A0;&#x4E0A;<code>?[hash]</code>&#x5C31;&#x884C;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x7B80;&#x5355;&#x7684;&#x5199;&#x6CD5;&#x3002;</p>
+<p>&#x7167;&#x4F8B;&#x8D34;&#x7740;&#x5230;&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x7684;&#x914D;&#x7F6E;&#x4EE3;&#x7801;&#x5427;&#x3002;</p>
+<pre><code>var path = require(&apos;path&apos;);
+var webpack = require(&apos;webpack&apos;);
+var ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+var buildPath = path.resolve(__dirname, &apos;build&apos;);
+var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
+
+module.exports = {
+    entry: {
+      index: [
+        &apos;webpack/hot/dev-server&apos;,
+        &apos;webpack-dev-server/client?http://localhost:8080&apos;,
+        path.resolve(__dirname, &apos;src/index.js&apos;)
+      ],
+      vendor: [&apos;react&apos;, &apos;react-dom&apos;]
+    },
+    output: {
+        path: buildPath,
+        filename: &apos;[name].js?[hash]&apos;
+    },
+    resolve: {
+      extension: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;, &apos;.json&apos;]
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          loaders: [&apos;react-hot&apos;, &apos;babel&apos;],
+          exclude: path.resolve(__dirname, &apos;node_modules&apos;)
+        },
+        {
+          test: /\.css/,
+          loader: ExtractTextPlugin.extract(&quot;style-loader&quot;, &quot;css-loader&quot;)
+        },
+        {
+          test: /\.less/,
+          loader: ExtractTextPlugin.extract(&quot;style-loader&quot;, &quot;css-loader!less-loader&quot;)
+        },
+        {
+          test: /\.(png|jpg)$/,
+          loader: &apos;url?limit=8192&apos;
+        },
+        {
+          test: /\.(woff|woff2|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
+          loader: &quot;url?limit=10000&quot;
+        }
+      ]
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin(),
+      new webpack.optimize.CommonsChunkPlugin(&apos;vendor&apos;, &apos;vendor.js?[hash]&apos;),
+      new ExtractTextPlugin(&quot;[name].css?[hash]&quot;, {
+          allChunks: true,
+          disable: false
+      }),
+      new HtmlWebpackPlugin({
+        title: &apos;zhufeng-react&apos;,
+        template: &apos;./src/index.html&apos;,
+      })
+    ],
+    devtool: &apos;cheap-module-source-map&apos;
+};
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../webpack-dir/第三章/3CommonChunk.html" class="navigation navigation-prev " aria-label="Previous page: Common chunk 提取出应用中公共的代码"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../webpack-dir/第三章/5异步加载.html" class="navigation navigation-next " aria-label="Next page: 异步加载（实现资源加载的性能优化"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
